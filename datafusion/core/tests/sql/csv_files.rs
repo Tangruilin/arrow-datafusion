@@ -28,6 +28,7 @@ async fn csv_custom_quote() -> Result<()> {
     ]));
     let filename = format!("partition.{}", "csv");
     let file_path = tmp_dir.path().join(filename);
+    println!("{:?}", file_path);
     let mut file = File::create(file_path)?;
 
     // generate some data
@@ -37,6 +38,7 @@ async fn csv_custom_quote() -> Result<()> {
         let data = format!("~{text1}~,~{text2}~\r\n");
         file.write_all(data.as_bytes())?;
     }
+
     ctx.register_csv(
         "test",
         tmp_dir.path().to_str().unwrap(),

@@ -96,6 +96,8 @@ mod sql_api;
 pub mod subqueries;
 pub mod timestamp;
 
+pub mod datatime;
+
 fn create_join_context(
     column_left: &str,
     column_right: &str,
